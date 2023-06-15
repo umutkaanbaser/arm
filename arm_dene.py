@@ -2,12 +2,14 @@
 # Dahil etme 
 #-----------
 # Dogrudan bu şekilde dahil ederek kullanırsanız değişkenlere daha kolay ulaşım sağlarsınız
+# If you use it by including it directly in this way, you will have easier access to the variables.
 from arm.arm import *
 from datetime import datetime
 
 #Tablo Oluşturma
 #--------------
-#  Aşşağıda basitce tablo oluşturma ornekleri gösterilmiştir.
+# Aşağıda basitce tablo oluşturma ornekleri gösterilmiştir.
+# Below are simply examples of creating tables.
 class Yetki(Tablo):
     Id=INT(primarykey=True,auto=True)
     YetkiIsim=VARCHAR(100)
@@ -43,6 +45,7 @@ class Log(Tablo):
 
 
 #Tabloları veri tabanına kayıt edip veri tabanını ayağa kaldırma
+#Saving the tables to the database and restoring the database
 #----------------------------------------------------------------
 class DataBase(VeriTabani):
     def __init__(self,*args,**kwargs):
@@ -55,6 +58,7 @@ class DataBase(VeriTabani):
 
 
 # !! olusturmus oldugunuz veri tabanından bir örnek oluşturunca init fonksyionu devreye girip veri tabanını olusturur
+# !! When you create an instance from the database you have created, the init function kicks in and creates the database.
 db = DataBase("yenitaban.db")
 
 
@@ -134,19 +138,20 @@ print ("""
 |  this is english code at now  |
 |-------------------------------|
 """)
+# get single data from id
 tek_veri_cekme = db.Personel.select({"Id":"1"}).choice("*").first()
 print(f"gelen Id:{tek_veri_cekme.Id.deger} isim:{tek_veri_cekme.Isim.deger}")
 
-#id'den tek veriyi istenilen sütünlarını almak
+# get single data and desired columns from id
 istenilen_veri = db.Personel.select({"Id":"1"}).choice(["Id","Isim"]).first()
 print(f"gelen Id:{tek_veri_cekme.Id.deger} isim:{tek_veri_cekme.Isim.deger}")
 
-#sorguya gore gelen verilerin istenilen sütünlarını almak
+# get the desired columns of the data according to the query
 coklu_veriler = db.Personel.select({"YetkiId":"1"}).choice(["Isim"]).tolist()
 for i,veri in enumerate(coklu_veriler):
     print(f"{i}. isim:{veri.Isim.deger}")
 
-#sorguya gore gelen istenilen kadar verilerinin istenilen sütünlarını almak
+# to get the desired columns of the desired data according to the query
 coklu_veriler = db.Personel.select({"YetkiId":"1"}).choice(["Isim"]).take(3)
 for i,veri in enumerate(coklu_veriler):
     print(f"{i}. isim:{veri.Isim.deger}")
