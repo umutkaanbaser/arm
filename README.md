@@ -93,3 +93,5 @@ change_obje = db.student.select({"Id":"1"}).choice("*").first()
 change_obje.name_surname.value = "example3"
 db.Personel.update(degistirilecek_obje)
 ```
+güncellemek için sadece hangi sütunu değiştirmek istiyorsanız o Sütunun 'deger' özelliğine yeniden güncellemeniz yeterlidir. Ardından '.güncelle' methoduna veriniz.
+To update it, simply update the 'value' property of the column you want to change.Then give the object to the '.update' method.
