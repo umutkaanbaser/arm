@@ -111,6 +111,15 @@ You can easily delete the database object by giving the object to be deleted to 
 
 ### veri sorgulama | Select
 ```python
+tek_veri_cekme = db.ogrenci.sorgula({"Id":"1"}).sec("*").ilkdon()
+istenilen_veri = db.ogrenci.sorgula({"Id":"1"}).sec(["Id","isim_soyisim"]).ilkdon()
+coklu_veriler = db.ogrenci.sorgula({"sinif":"1"}).sec(["isim_soyisim"]).listele()
+coklu_veriler = db.ogrenci.sorgula({"sinif":"1"}).sec(["isim_soyisim"]).adet(3)
+
+only_one = db.student.select({"Id":"1"}).choice("*").first()
+wanted_data = db.student.select({"Id":"1"}).choice(["Id","isim_soyisim"]).first()
+datas = db.student.select({"sinif":"1"}).choice(["isim_soyisim"]).tolist()
+datas_3 = db.student.select({"sinif":"1"}).choice(["isim_soyisim"]).take(3)
 
 ```
 sorgulama işlemi 3 adımda yapılır ilk olarak 'sorgula' methoduyla sutünlarda olması istenilen veriler yazılır. Ardından 'sec' methoduyla hangi sütunların geri dönüleceği söylenir. ve sonuncu adım olarakta liste olarak mı , tek 1 veri mi yoksa koşulu sağlayan belli sayıda ki veriler mi dönülsün onu söyleriz.
