@@ -108,3 +108,11 @@ db.student.delete(delete_object)
 veritabani nesnesine gerekli tablonun .sil methoduna silincek objeyi vererek kolayca silebilirsiniz.
 
 You can easily delete the database object by giving the object to be deleted to the .delete method of the required table.
+
+### veri sorgulama | Select
+```python
+
+```
+sorgulama işlemi 3 adımda yapılır ilk olarak 'sorgula' methoduyla sutünlarda olması istenilen veriler yazılır. Ardından 'sec' methoduyla hangi sütunların geri dönüleceği söylenir. ve sonuncu adım olarakta liste olarak mı , tek 1 veri mi yoksa koşulu sağlayan belli sayıda ki veriler mi dönülsün onu söyleriz.
+
+The query process is done in 3 steps. First, the data that is required to be in the columns is written using the 'select' method. Then it is told which columns to return with the 'choice' method. And as the last step, we tell you whether to return as a list, single data or a certain number of data satisfying the condition.
