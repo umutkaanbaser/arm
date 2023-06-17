@@ -125,3 +125,14 @@ datas_3 = db.student.select({"sinif":"1"}).choice(["isim_soyisim"]).take(3)
 sorgulama işlemi 3 adımda yapılır ilk olarak 'sorgula' methoduyla sutünlarda olması istenilen veriler yazılır. Ardından 'sec' methoduyla hangi sütunların geri dönüleceği söylenir. ve sonuncu adım olarakta liste olarak mı , tek 1 veri mi yoksa koşulu sağlayan belli sayıda ki veriler mi dönülsün onu söyleriz.
 
 The query process is done in 3 steps. First, the data that is required to be in the columns is written using the 'select' method. Then it is told which columns to return with the 'choice' method. And as the last step, we tell you whether to return as a list, single data or a certain number of data satisfying the condition.
+
+### Veri tipleri | Data types
+```python
+INT(notnull:bool=False,primarykey:bool=False,auto:bool=False)
+INTEGER(notnull:bool=False,primarykey:bool=False,auto:bool=False) # INT ile aynıdır, same as INT
+FLOAT(notnull:bool=False)
+DOUBLE(notnull:bool=False)#FLOAT ile aynıdır. same as FLOAT
+DATETIME(tarih:datetime=None,tarih_st:str="",notnull:bool=False)
+TEXT(n:int=8001,notnull:bool=False)
+VARCHAR(n:int=8001,notnull:bool=False) # TEXT ile aynıdır. same as TEXT
+```
