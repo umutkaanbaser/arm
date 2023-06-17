@@ -25,6 +25,8 @@ project/
 |   |-- temel_fonklar.py
 |
 | # diğer kod dosyaları ve klasörler
+| # other code file and directories
+|
 |-- main.py # from arm.arm import *
 
 ```
