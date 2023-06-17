@@ -61,4 +61,35 @@ class DataBase(VeriTabani):
 veritabanı ayağa kaldırırmak için 'VeriTabani' nesneninden kalıtım alan bir nesne oluşturmanız gerekmektedir. O nesnenin içine __init__ fonksiyonunun altına tablolardan kopya oluşturarak veriniz. Unutmayınız *args ve **kwargs değişkenlerini mutlaka kalıtım alınan nesneye iletiniz 5. satırda olduğu gibi.
 
 
-To raise the database, you need to create an object that inherits from the 'Database' object. Submit it under the __init__ function by creating a copy of the tables inside that object. Do not forget to pass *args and **kwargs variables to the inherited object, as in line 5.
+To raise the database, you need to create an object that inherits from the 'VeriTabani' object. Submit it under the __init__ function by creating a copy of the tables inside that object. Do not forget to pass *args and **kwargs variables to the inherited object, as in line 5.
+
+```python
+db = DataBase("_sqlite.db")
+```
+ardından oluşturmuş olduğunuz nesneden bir kopya ürettiğinizde __init__ fonksiyonu çalışır ve vermiş olduğunuz isim ile veritabanını ayağa kaldırır. Eğer bu isimde veritabanı var ise sadece ona bağlanacaktır.
+
+Then, when you produce a copy of the object you created, the __init__ function runs and restores the database with the name you have given. If there is a database with this name, it will only connect to it.
+
+### ekleme işlemi | Insert
+```python
+eklenecek_veri = ogrenci(isim_soyisim='ornek isim',sinif=5)
+db.ogrenci.ekle(eklenecek_veri)
+
+add_value = ogrenci(name_surname='ornek isim',class_number=5)
+db.student.insert(add_value)
+```
+veri tabanına veri eklemek için ise tablo sınıfından bir örnek oluşturup içine verilerinizi veriniz. Arından 'VeriTabani' nesnesinden kalıtım alarak oluşturdugunuz nesne de gerekli sütunun 'ekle' methodunu kullanarak kolayca ekleyebilirisiniz.
+
+To add data to the database, create an example from the table class and insert your data into it. Then you can easily add the object you created by inheriting from the 'VeriTabani' object by using the 'insert' method of the required column.
+
+
+### veri güncelleme | Update
+```python
+degistirilecek_obje = db.ogrenci.sorgula({"Id":"1"}).sec("*").ilkdon()
+degistirilecek_obje.isim_soyisim.deger = "ornek2"
+db.Personel.guncelle(degistirilecek_obje)
+
+change_obje = db.student.select({"Id":"1"}).choice("*").first()
+change_obje.name_surname.value = "example3"
+db.Personel.update(degistirilecek_obje)
+```
