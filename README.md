@@ -136,3 +136,6 @@ DATETIME(tarih:datetime=None,tarih_st:str="",notnull:bool=False)
 TEXT(n:int=8001,notnull:bool=False)
 VARCHAR(n:int=8001,notnull:bool=False) # TEXT ile aynıdır. same as TEXT
 ```
+
+
+not: bu 2021 senesinde çeşitli projelerde işlerimi kolaylaştırması adına geliştirdiğim sdkdır. note: This is the SDK I developed in 2021 to facilitate my work in various projects.
