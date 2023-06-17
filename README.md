@@ -95,3 +95,16 @@ db.Personel.update(degistirilecek_obje)
 ```
 güncellemek için sadece hangi sütunu değiştirmek istiyorsanız o Sütunun 'deger' özelliğine yeniden güncellemeniz yeterlidir. Ardından '.güncelle' methoduna veriniz.
 To update it, simply update the 'value' property of the column you want to change.Then give the object to the '.update' method.
+
+
+### veri silme | Delete
+```python
+silinecek_obje = db.ogrenci.sorgula({"Id":"2"}).sec("*").ilkdon()
+db.ogrenci.sil(silinecek_obje)
+
+delete_object = db.student.select({"Id":"2"}).choice("*").first()
+db.student.delete(delete_object)
+```
+veritabani nesnesine gerekli tablonun .sil methoduna silincek objeyi vererek kolayca silebilirsiniz.
+
+You can easily delete the database object by giving the object to be deleted to the .delete method of the required table.
