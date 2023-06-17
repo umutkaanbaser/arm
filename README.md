@@ -50,4 +50,15 @@ tablo oluştururken 'Tablo' sınıfından kalıtım almalısınız. Altında do�
 
 when creating a table you must inherit from the 'Tablo' class. Define the variable names directly below and declare the variable types. They will be created with the names you have given in the database. Variables have their own parameters, here we declared that it is the primary key by saying 'primarykey=True', and we defined it to auto increment with 'auto=True'.
 
+### veritabanı oluşturma | create a database
+```python
+class DataBase(VeriTabani):
+    def __init__(self,*args,**kwargs):
+        self.ogrenci = ogrenci()
+        self.student = student()
+        super().__init__(*args,**kwargs)
+```
+veritabanı ayağa kaldırırmak için 'VeriTabani' nesneninden kalıtım alan bir nesne oluşturmanız gerekmektedir. O nesnenin içine __init__ fonksiyonunun altına tablolardan kopya oluşturarak veriniz. Unutmayınız *args ve **kwargs değişkenlerini mutlaka kalıtım alınan nesneye iletiniz 5. satırda olduğu gibi.
 
+
+To raise the database, you need to create an object that inherits from the 'Database' object. Submit it under the __init__ function by creating a copy of the tables inside that object. Do not forget to pass *args and **kwargs variables to the inherited object, as in line 5.
