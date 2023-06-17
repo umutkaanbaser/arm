@@ -34,3 +34,20 @@ project/
 ```python
 from arm.arm import *
 ```
+### tablo oluşturma | create a table
+```python
+class ogrenci(Tablo):
+    Id=INT(primarykey=True,auto=True)
+    isim_soyisim=VARCHAR(100)
+    sinif=INT()
+
+class student(Tablo):
+    Id=INT(primarykey=True,auto=True)
+    name_surname=VARCHAR(100)
+    class_number=INT()
+```
+tablo oluştururken 'Tablo' sınıfından kalıtım almalısınız. Altında doğrudan değişken isimlerini tanımlayıp değişken tiplerini bildiriniz. Veritabanında verimiş olduğunz isimler ile oluşacaklardır. Değikenlerin kendilerine ait parametreleri bulunmaktadır burada primarykey=True diyerek birincil anahtar olduğunu bildirdik ve auto=True diyerek ise kendisi artıcak şekilde tanımladık.
+
+when creating a table you must inherit from the 'Tablo' class. Define the variable names directly below and declare the variable types. They will be created with the names you have given in the database. Variables have their own parameters, here we declared that it is the primary key by saying 'primarykey=True', and we defined it to auto increment with 'auto=True'.
+
+
