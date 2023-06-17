@@ -13,6 +13,21 @@ It is an ORM (Object–relational mapping) software that maps ARM database and o
 * By associating the objects with the database you have created, you can make a more readable and error-free coding with object-oriented programming.
 
 # ARM NASIL KULLANILIR ? | HOW USE ARM ?
+### dizin yapısı | directory struct
+```
+project/
+|
+|-- arm/
+|   |-- __init__.py
+|   |-- arm.py
+|   |-- degiskenler.py
+|   |-- tablo_vb.py
+|   |-- temel_fonklar.py
+|
+| # diğer kod dosyaları ve klasörler
+|-- main.py # from arm.arm import *
+
+```
 ### dahil etme | including
 ```python
 from arm.arm import *
